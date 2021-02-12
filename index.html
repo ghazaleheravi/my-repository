@@ -22,6 +22,7 @@
                 let url = URL.createObjectURL(myBlob);
                 image.src = url;  
               })
+              .catch( err => {console.log('There has been a problem with your fetch operation: '+ err.message)});
         </script>
     </body>
 </html>
