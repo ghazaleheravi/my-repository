@@ -8,7 +8,7 @@
     <body>
         <img id="cup">
         <script>
-            const image = document.querySelector('#cup');
+            
 
             let fetchResopnsePromise = fetch('coffee.jpg')
               .then(response => { 
@@ -19,8 +19,9 @@
                 }
                 })
               .then(myBlob => {
-                let url = URL.createObjectURL(myBlob);
-                image.src = url;  
+                let objURL = URL.createObjectURL(myBlob);
+                let image = document.querySelector('img');
+                image.src = objURL;  
               })
               .catch( err => {console.log('There has been a problem with your fetch operation: '+ err.message)});
         </script>
