@@ -7,5 +7,21 @@
     </head>
     <body>
         <img id="cup">
+        <script>
+            const image = document.querySelector('#cup');
+
+            let fetchResopnsePromise = fetch('https://images.unsplash.com/photo-1473958828028-53df95f0b5ed?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=2000&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ')
+              .then(response => { 
+                if(response.ok){
+                  response.blob();
+                } else {
+                  throw new Error(`HTTP error! status: ${resonse.status}`);  
+                }
+                })
+              .then(myBlob => {
+                let url = URL.createObjURL(myBlob);
+                image.src = url;  
+              })
+        </script>
     </body>
 </html>
