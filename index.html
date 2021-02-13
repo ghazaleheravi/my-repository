@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>practice on fetching image/learning mdn</title>
-        
-    </head>
-    <body>
-        <img id="cup">
-        <script>
+  <head>
+    <meta charset="utf-8">
+    <title>practice on fetching image/learning mdn</title>
+    <style>
+      div {
+        width: 300px;
+        height: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div><img id="cup"></div>div>
+    <script>
             
-
-            let fetchResopnsePromise = fetch('coffee.jpg')
-              .then(response => { 
-                if(response.ok){
-                  response.blob();
-                } else {
-                  throw new Error(`HTTP error! status: ${resonse.status}`);  
-                }
-                })
-              .then(myBlob => {
-                let objURL = URL.createObjectURL(myBlob);
-                let image = document.querySelector('img');
-                image.src = objURL;  
-              })
-              .catch( err => {console.log('There has been a problem with your fetch operation: '+ err.message)});
-        </script>
-    </body>
+      let fetchResopnsePromise = fetch('coffee.jpg')
+        .then(response => { 
+          if(response.ok){
+            response.blob();
+          } else {
+            throw new Error(`HTTP error! status: ${resonse.status}`);  
+          }
+        })
+        .then(myBlob => {
+          let objURL = URL.createObjectURL(myBlob);
+          let image = document.querySelector('img');
+          image.src = objURL;  
+        })
+        .catch( err => {console.log('There has been a problem with your fetch operation: '+ err.message)});
+    </script>
+  </body>
 </html>
