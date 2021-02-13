@@ -11,7 +11,6 @@
     </style>
   </head>
   <body>
-    <img id="cup">
     <script>
             
       let fetchResopnsePromise = fetch('coffee.jpg')
@@ -24,9 +23,9 @@
         })
         .then(myBlob => {
           let objURL = URL.createObjectURL(myBlob);
-          let image = document.querySelector('#cup');
-          document.body.appendChild(image);
-          image.src = objURL;  
+          let image = document.createElement('img');
+          image.src = objURL;
+          document.body.appendChild(image);  
         })
         .catch( err => {console.log('There has been a problem with your fetch operation: '+ err.message)});
     </script>
