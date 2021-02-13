@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <title>practice on fetching image/learning mdn</title>
     <style>
-      div {
+      img {
         width: 300px;
         height: 300px;
       }
     </style>
   </head>
   <body>
-    <div><img id="cup"></div>div>
+    <img id="cup">
     <script>
             
       let fetchResopnsePromise = fetch('coffee.jpg')
@@ -24,7 +24,8 @@
         })
         .then(myBlob => {
           let objURL = URL.createObjectURL(myBlob);
-          let image = document.querySelector('img');
+          let image = document.querySelector('#cup');
+          document.body.appendChild(image);
           image.src = objURL;  
         })
         .catch( err => {console.log('There has been a problem with your fetch operation: '+ err.message)});
